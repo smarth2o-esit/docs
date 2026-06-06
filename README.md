@@ -1,4 +1,4 @@
-# 💧 SmartH2O — `docs`
+# SmartH2O — `docs`
 
 > **Repositorio:** `smarth2o-esit/docs`
 > **Componente:** Documentación central del proyecto, bitácoras, evidencias e informes
