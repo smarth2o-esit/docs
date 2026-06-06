@@ -92,10 +92,10 @@ Cada archivo en `bitacoras/` sigue el formato oficial ESIT con las secciones:
 
 ## Responsable
 
-| Rol                        | Nombre                   | GitHub     |
-|----------------------------|--------------------------|------------|
-| Analista QA/Documentador Jr.| David Ali Rondon Majano | [@usuario] |
-| Líder de Proyecto Jr.       | David Ali Rondon Majano | [@usuario] |
+| Rol                        | Nombre                   | GitHub|
+|----------------------------|--------------------------|-------|
+| Analista QA/Documentador Jr.| David Ali Rondon Majano | @me   |
+| Líder de Proyecto Jr.       | David Ali Rondon Majano | @me   |
 
 ---
 
