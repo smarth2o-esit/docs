@@ -105,4 +105,4 @@ Todos los repositorios de `smarth2o-esit` hacen referencia a documentos de este 
 
 ---
 
-> Proyecto SmartH2O · ESIT – Estancia Profesional · Línea IoT, Analítica y Sostenibilidad Digital
+> Proyecto SmartH2O · ESIT – Estancia Profesional · Servicios en la Nube
