@@ -1,0 +1,184 @@
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- TITLE -->
+    <mxCell id="title" value="SmartH2O — Responsabilidades por Rol" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=22;fontStyle=1;fontColor=#1B3A6B;" vertex="1" parent="1">
+      <mxGeometry x="100" y="15" width="1440" height="35" as="geometry" />
+    </mxCell>
+    <mxCell id="sub" value="Cada columna representa un integrante del equipo con sus componentes, repositorio y entregables por fase" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontColor=#555555;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="100" y="48" width="1440" height="22" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- ROW LABELS (phases) -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <mxCell id="ph_label" value="FASE" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontStyle=1;fontColor=#555555;" vertex="1" parent="1">
+      <mxGeometry x="10" y="90" width="80" height="25" as="geometry" />
+    </mxCell>
+    <mxCell id="ph0" value="FASE 0&#xa;S1" style="text;html=1;strokeColor=#CCCCCC;fillColor=#F4F6F9;align=center;fontSize=10;fontStyle=1;fontColor=#1B3A6B;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="10" y="165" width="80" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="ph1" value="FASE 1&#xa;S2–3" style="text;html=1;strokeColor=#CCCCCC;fillColor=#F4F6F9;align=center;fontSize=10;fontStyle=1;fontColor=#1B3A6B;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="10" y="285" width="80" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="ph2" value="FASE 2&#xa;S4–5" style="text;html=1;strokeColor=#CCCCCC;fillColor=#F4F6F9;align=center;fontSize=10;fontStyle=1;fontColor=#1B3A6B;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="10" y="425" width="80" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="ph3" value="FASE 3&#xa;S6–8" style="text;html=1;strokeColor=#CCCCCC;fillColor=#F4F6F9;align=center;fontSize=10;fontStyle=1;fontColor=#1B3A6B;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="10" y="565" width="80" height="120" as="geometry" />
+    </mxCell>
+    <mxCell id="ph4" value="FASE 4&#xa;S9–10" style="text;html=1;strokeColor=#CCCCCC;fillColor=#F4F6F9;align=center;fontSize=10;fontStyle=1;fontColor=#1B3A6B;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="10" y="725" width="80" height="80" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- COLUMN 1: PRODUCT OWNER — David -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <mxCell id="col1_hdr" value="👤 David Rondon&#xa;Product Owner / Líder&#xa;Repo: docs" style="swimlane;startSize=65;fillColor=#1B3A6B;strokeColor=#1B3A6B;fontColor=#ffffff;fontStyle=1;fontSize=11;horizontal=1;" vertex="1" parent="1">
+      <mxGeometry x="100" y="80" width="250" height="750" as="geometry" />
+    </mxCell>
+    <mxCell id="d_f0" value="✅ Crear organización GitHub&#xa;✅ Crear 6 repositorios&#xa;✅ Asignar roles al equipo&#xa;✅ Bitácora Semana 1&#xa;✅ Coordinar sesiones 1-on-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1B3A6B;fontSize=9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col1_hdr">
+      <mxGeometry x="10" y="75" width="230" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="d_f1" value="🔄 Coordinar Doc. de Análisis&#xa;🔄 Registrar decisión D05&#xa;🔄 Gestionar Registro de&#xa;    Decisiones (doc preliminar)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1B3A6B;fontSize=9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col1_hdr">
+      <mxGeometry x="10" y="195" width="230" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="d_f2" value="⬜ Seguimiento de avance&#xa;⬜ Bitácoras S4 y S5&#xa;⬜ Evidencias en /docs/" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1B3A6B;fontSize=9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col1_hdr">
+      <mxGeometry x="10" y="325" width="230" height="65" as="geometry" />
+    </mxCell>
+    <mxCell id="d_f3" value="⬜ Bitácoras S6, S7 y S8&#xa;⬜ Gestión de riesgos&#xa;⬜ Revisión de entregables" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1B3A6B;fontSize=9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col1_hdr">
+      <mxGeometry x="10" y="440" width="230" height="65" as="geometry" />
+    </mxCell>
+    <mxCell id="d_f4" value="⬜ Informe Final&#xa;⬜ Demo — coordinación&#xa;⬜ Bitácoras S9 y S10&#xa;⬜ Tag v1.0.0 en todos los repos" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1B3A6B;fontSize=9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col1_hdr">
+      <mxGeometry x="10" y="555" width="230" height="75" as="geometry" />
+    </mxCell>
+    <mxCell id="d_repo" value="📁 smarth2o-esit/docs&#xa;/bitacoras/ · /analisis/&#xa;/diseno/ · /evidencias/&#xa;/informe_final/" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D6E4F0;strokeColor=#1B3A6B;fontSize=9;arcSize=5;fontStyle=1;" vertex="1" parent="col1_hdr">
+      <mxGeometry x="10" y="670" width="230" height="65" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- COLUMN 2: IoT — Christian -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <mxCell id="col2_hdr" value="📡 Christian Castro&#xa;Ingeniero IoT Jr.&#xa;Repo: simulator" style="swimlane;startSize=65;fillColor=#0E7C86;strokeColor=#0E7C86;fontColor=#ffffff;fontStyle=1;fontSize=11;horizontal=1;" vertex="1" parent="1">
+      <mxGeometry x="365" y="80" width="250" height="750" as="geometry" />
+    </mxCell>
+    <mxCell id="c_f0" value="✅ Leer doc. del proyecto&#xa;✅ Clonar repo simulator&#xa;✅ Configurar entorno Python&#xa;🔄 Revisar config.py (5 sensores)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0E7C86;fontSize=9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col2_hdr">
+      <mxGeometry x="10" y="75" width="230" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="c_f1" value="🔄 Documentar 5 puntos de monitoreo&#xa;🔄 Definir variables y unidades&#xa;🔄 Proponer umbrales por zona&#xa;🔄 Validar estructura del payload" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0E7C86;fontSize=9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col2_hdr">
+      <mxGeometry x="10" y="195" width="230" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="c_f2" value="⬜ Implementar simulator.py&#xa;⬜ 5 sensores en paralelo (threads)&#xa;⬜ Modo anomalía inyectable&#xa;⬜ pytest tests/test_sensor.py&#xa;⬜ Prueba integración con ingestión" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0E7C86;fontSize=9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col2_hdr">
+      <mxGeometry x="10" y="325" width="230" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="c_f3" value="⬜ Inyectar anomalías para pruebas&#xa;⬜ Ejecutar escenarios Matriz&#xa;⬜ Ajustar flow_mean y flow_std" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0E7C86;fontSize=9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col2_hdr">
+      <mxGeometry x="10" y="455" width="230" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="c_f4" value="⬜ Revisar y documentar código&#xa;⬜ Demo: ejecutar simulador en vivo&#xa;⬜ Tag v1.0.0 en simulator" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0E7C86;fontSize=9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col2_hdr">
+      <mxGeometry x="10" y="555" width="230" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="c_repo" value="📁 smarth2o-esit/simulator&#xa;src/sensor.py&#xa;src/simulator.py&#xa;src/config.py · tests/" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5EEF0;strokeColor=#0E7C86;fontSize=9;arcSize=5;fontStyle=1;" vertex="1" parent="col2_hdr">
+      <mxGeometry x="10" y="660" width="230" height="70" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- COLUMN 3: Cloud/Backend — Azucena -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <mxCell id="col3_hdr" value="☁️ Azucena Castillo&#xa;Ingeniero Cloud/Backend Jr.&#xa;Repos: ingestion · database" style="swimlane;startSize=65;fillColor=#1E56A0;strokeColor=#1E56A0;fontColor=#ffffff;fontStyle=1;fontSize=11;horizontal=1;" vertex="1" parent="1">
+      <mxGeometry x="630" y="80" width="270" height="750" as="geometry" />
+    </mxCell>
+    <mxCell id="a_f0" value="✅ Crear cuenta InfluxDB Cloud&#xa;✅ Levantar docker-compose (infra)&#xa;✅ Crear bucket water_telemetry&#xa;✅ Generar token de InfluxDB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1E56A0;fontSize=9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col3_hdr">
+      <mxGeometry x="10" y="75" width="250" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="a_f1" value="🔄 Validar esquema InfluxDB&#xa;🔄 Probar 5 queries Flux de referencia&#xa;🔄 Documentar config de infraestructura&#xa;🔄 Registrar D01 en doc. preliminar" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1E56A0;fontSize=9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col3_hdr">
+      <mxGeometry x="10" y="195" width="250" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="a_f2" value="⬜ Implementar suscriptor MQTT&#xa;⬜ Validar escritura en InfluxDB&#xa;⬜ pytest tests/test_validator.py&#xa;⬜ Crear bucket water_telemetry_agg&#xa;⬜ Configurar Flux Task downsample" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1E56A0;fontSize:9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col3_hdr">
+      <mxGeometry x="10" y="325" width="250" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="a_f3" value="⬜ Verificar queries para Grafana&#xa;⬜ Pruebas de ingestión (Matriz)&#xa;⬜ Revisión de seguridad del repo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1E56A0;fontSize:9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col3_hdr">
+      <mxGeometry x="10" y="455" width="250" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="a_f4" value="⬜ Consolidar repos ingestion + database&#xa;⬜ Demo: mostrar datos en InfluxDB&#xa;⬜ Tag v1.0.0 en ambos repos" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1E56A0;fontSize=9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col3_hdr">
+      <mxGeometry x="10" y="555" width="250" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="a_repo" value="📁 smarth2o-esit/ingestion&#xa;src/main.py · validator.py · writer.py&#xa;📁 smarth2o-esit/database&#xa;influxdb/queries/ · tasks/&#xa;infrastructure/docker-compose.yml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D6E4F0;strokeColor=#1E56A0;fontSize=9;arcSize=5;fontStyle=1;" vertex="1" parent="col3_hdr">
+      <mxGeometry x="10" y="655" width="250" height="80" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- COLUMN 4: Dashboard — Mirna -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <mxCell id="col4_hdr" value="📊 Mirna Jimenez&#xa;Desarrollador Dashboard Jr.&#xa;Repo: dashboard" style="swimlane;startSize=65;fillColor=#5B2D8E;strokeColor=#5B2D8E;fontColor=#ffffff;fontStyle=1;fontSize=11;horizontal=1;" vertex="1" parent="1">
+      <mxGeometry x="915" y="80" width="260" height="750" as="geometry" />
+    </mxCell>
+    <mxCell id="m_f0" value="✅ Crear cuenta Grafana Cloud&#xa;✅ Clonar repo dashboard&#xa;🔄 Investigar datasource InfluxDB&#xa;🔄 Proponer lista de paneles (6+)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#5B2D8E;fontSize=9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col4_hdr">
+      <mxGeometry x="10" y="75" width="240" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="m_f1" value="🔄 Definir lista de indicadores&#xa;🔄 Diseñar layout del dashboard&#xa;🔄 Diseñar variables de plantilla&#xa;    ($building, $zone, $sensor, $interval)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#5B2D8E;fontSize=9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col4_hdr">
+      <mxGeometry x="10" y="195" width="240" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="m_f2" value="⬜ Configurar datasource InfluxDB&#xa;⬜ Time Series, Stat, Gauge&#xa;⬜ Heatmap y Bar Chart&#xa;⬜ Exportar JSON al repo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#5B2D8E;fontSize=9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col4_hdr">
+      <mxGeometry x="10" y="325" width="240" height="70" as="geometry" />
+    </mxCell>
+    <mxCell id="m_f3" value="⬜ Alert List + Alert Rules&#xa;⬜ Filtros por zona activos&#xa;⬜ Panel de texto interpretativo&#xa;⬜ Ajustar estética y unidades" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#5B2D8E;fontSize=9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col4_hdr">
+      <mxGeometry x="10" y="445" width="240" height="70" as="geometry" />
+    </mxCell>
+    <mxCell id="m_f4" value="⬜ Exportar dashboard final (JSON)&#xa;⬜ Demo: mostrar dashboard en vivo&#xa;⬜ Tag v1.0.0 en dashboard" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#5B2D8E;fontSize=9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col4_hdr">
+      <mxGeometry x="10" y="555" width="240" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="m_repo" value="📁 smarth2o-esit/dashboard&#xa;grafana/smarth2o_dashboard.json&#xa;grafana/datasource_influxdb.yaml&#xa;grafana/panels/ (documentación)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAE0F5;strokeColor=#5B2D8E;fontSize=9;arcSize=5;fontStyle=1;" vertex="1" parent="col4_hdr">
+      <mxGeometry x="10" y="660" width="240" height="70" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- COLUMN 5: Integración — Karen -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <mxCell id="col5_hdr" value="🔔 Karen Caceres&#xa;Ingeniero de Integración Jr.&#xa;Repo: alerts" style="swimlane;startSize=65;fillColor=#1A6B3C;strokeColor=#1A6B3C;fontColor=#ffffff;fontStyle=1;fontSize=11;horizontal=1;" vertex="1" parent="1">
+      <mxGeometry x="1190" y="80" width="260" height="750" as="geometry" />
+    </mxCell>
+    <mxCell id="k_f0" value="✅ Crear cuenta InfluxDB Cloud&#xa;✅ Crear Telegram Bot (@BotFather)&#xa;✅ Iniciar archivos .py de reglas&#xa;✅ Clonar repo alerts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1A6B3C;fontSize=9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col5_hdr">
+      <mxGeometry x="10" y="75" width="240" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="k_f1" value="🔄 Revisar y ajustar reglas R01–R04&#xa;🔄 Documentar lógica de detección&#xa;🔄 Diseñar formato de mensajes&#xa;🔄 Definir política de debounce" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1A6B3C;fontSize=9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col5_hdr">
+      <mxGeometry x="10" y="195" width="240" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="k_f2" value="⬜ Verificar detector.py vs InfluxDB&#xa;⬜ Probar envío de alerta Telegram&#xa;⬜ Verificar debounce anti-spam&#xa;⬜ pytest tests/test_debounce.py" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1A6B3C;fontSize=9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col5_hdr">
+      <mxGeometry x="10" y="325" width="240" height="70" as="geometry" />
+    </mxCell>
+    <mxCell id="k_f3" value="⬜ Configurar Grafana Alerting&#xa;⬜ Ejecutar Matriz de Pruebas&#xa;⬜ Ajustar umbrales con datos reales&#xa;⬜ Documentar runbook de alertas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1A6B3C;fontSize=9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col5_hdr">
+      <mxGeometry x="10" y="445" width="240" height="70" as="geometry" />
+    </mxCell>
+    <mxCell id="k_f4" value="⬜ Consolidar repo alerts&#xa;⬜ Demo: alerta Telegram en vivo&#xa;⬜ Tag v1.0.0 en alerts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1A6B3C;fontSize=9;arcSize=5;align=left;verticalAlign=top;" vertex="1" parent="col5_hdr">
+      <mxGeometry x="10" y="555" width="240" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="k_repo" value="📁 smarth2o-esit/alerts&#xa;src/detector.py · rules.py&#xa;src/notifier.py · debounce.py&#xa;docs/runbook_alertas.md" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D6EDE1;strokeColor=#1A6B3C;fontSize=9;arcSize=5;fontStyle=1;" vertex="1" parent="col5_hdr">
+      <mxGeometry x="10" y="660" width="240" height="70" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- LEGEND -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <mxCell id="leg_bg" value="" style="rounded=1;fillColor=#F4F6F9;strokeColor=#CCCCCC;" vertex="1" parent="1">
+      <mxGeometry x="100" y="860" width="1350" height="45" as="geometry" />
+    </mxCell>
+    <mxCell id="leg1" value="✅ Completado (Fase 0)" style="text;html=1;strokeColor=none;fillColor=none;fontSize=11;fontColor=#1A6B3C;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="130" y="870" width="220" height="25" as="geometry" />
+    </mxCell>
+    <mxCell id="leg2" value="🔄 En progreso (Fase 1 activa)" style="text;html=1;strokeColor=none;fillColor=none;fontSize=11;fontColor=#7A4F00;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="380" y="870" width="260" height="25" as="geometry" />
+    </mxCell>
+    <mxCell id="leg3" value="⬜ Pendiente (Fases 2–4)" style="text;html=1;strokeColor=none;fillColor=none;fontSize=11;fontColor=#555555;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="670" y="870" width="240" height="25" as="geometry" />
+    </mxCell>
+    <mxCell id="leg4" value="📁 Repositorio principal del rol" style="text;html=1;strokeColor=none;fillColor=none;fontSize=11;fontColor=#1B3A6B;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="940" y="870" width="260" height="25" as="geometry" />
+    </mxCell>
+    <mxCell id="leg5" value="Semana actual: 2 · Fase 1 activa" style="text;html=1;strokeColor=none;fillColor=none;fontSize=11;fontColor=#1B3A6B;fontStyle=3;" vertex="1" parent="1">
+      <mxGeometry x="1220" y="870" width="220" height="25" as="geometry" />
+    </mxCell>
+
+  </root>
+</mxGraphModel>

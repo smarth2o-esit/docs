@@ -1,0 +1,181 @@
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- TITLE -->
+    <mxCell id="title" value="SmartH2O — Flujo de Datos" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=22;fontStyle=1;fontColor=#1B3A6B;" vertex="1" parent="1">
+      <mxGeometry x="100" y="20" width="960" height="35" as="geometry" />
+    </mxCell>
+    <mxCell id="sub" value="Ciclo completo: desde la generación de una lectura hasta la alerta en Telegram" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontColor=#555555;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="100" y="52" width="960" height="25" as="geometry" />
+    </mxCell>
+
+    <!-- ── STEP 1: Sensor generates reading ── -->
+    <mxCell id="step1_label" value="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#0E7C86;strokeColor=#0E7C86;fontColor=#ffffff;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="100" y="110" width="40" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="step1" value="🕐 Cada 30 segundos (configurable)&#xa;el simulador genera una lectura por sensor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5EEF0;strokeColor=#0E7C86;fontSize=11;arcSize=5;" vertex="1" parent="1">
+      <mxGeometry x="160" y="108" width="820" height="45" as="geometry" />
+    </mxCell>
+
+    <!-- Sensor reading box -->
+    <mxCell id="reading" value="{&#xa;  &quot;sensor_id&quot;: &quot;AARD-A-SAN-P1&quot;,&#xa;  &quot;timestamp&quot;: &quot;2026-06-05T14:32:10Z&quot;,&#xa;  &quot;flow_rate&quot;: 8.4,&#xa;  &quot;cumulative_volume&quot;: 342.7,&#xa;  &quot;status&quot;: &quot;normal&quot;,&#xa;  &quot;anomaly_flag&quot;: false,&#xa;  &quot;location&quot;: { &quot;building&quot;: &quot;Edificio Central&quot;,&#xa;                  &quot;floor&quot;: &quot;Piso 1&quot;, &quot;zone&quot;: &quot;Sanitarios&quot; }&#xa;}" style="text;html=1;strokeColor=#0E7C86;fillColor=#1E1E2E;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=11;fontColor=#CDD6F4;fontFamily=Courier New;" vertex="1" parent="1">
+      <mxGeometry x="240" y="175" width="680" height="155" as="geometry" />
+    </mxCell>
+    <mxCell id="reading_label" value="Payload JSON generado por sensor.py → simulator.py" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;fontColor=#0E7C86;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="240" y="330" width="500" height="20" as="geometry" />
+    </mxCell>
+
+    <!-- ── STEP 2: MQTT publish ── -->
+    <mxCell id="step2_label" value="2" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1E56A0;strokeColor=#1E56A0;fontColor=#ffffff;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="100" y="375" width="40" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="step2" value="📤 simulator.py ejecuta client.publish()&#xa;Topic: smarth2o/sensors/AARD-A-SAN-P1  |  QoS: 1  |  Retención: No" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D6E4F0;strokeColor=#1E56A0;fontSize=11;arcSize=5;" vertex="1" parent="1">
+      <mxGeometry x="160" y="373" width="820" height="45" as="geometry" />
+    </mxCell>
+
+    <!-- ── STEP 3: Mosquitto receives ── -->
+    <mxCell id="step3_label" value="3" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1E56A0;strokeColor=#1E56A0;fontColor=#ffffff;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="100" y="440" width="40" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="step3" value="🔀 Mosquitto Broker recibe el mensaje&#xa;Enruta a todos los suscriptores del topic smarth2o/sensors/#" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D6E4F0;strokeColor=#1E56A0;fontSize=11;arcSize=5;" vertex="1" parent="1">
+      <mxGeometry x="160" y="438" width="820" height="45" as="geometry" />
+    </mxCell>
+
+    <!-- ── STEP 4: on_message callback ── -->
+    <mxCell id="step4_label" value="4" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1B3A6B;strokeColor=#1B3A6B;fontColor=#ffffff;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="100" y="505" width="40" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="step4" value="⚙️ main.py recibe el mensaje via on_message()&#xa;Decodifica JSON → llama a validate(payload)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#1B3A6B;fontSize=11;arcSize=5;" vertex="1" parent="1">
+      <mxGeometry x="160" y="503" width="820" height="45" as="geometry" />
+    </mxCell>
+
+    <!-- ── STEP 5: Validation branch ── -->
+    <mxCell id="step5_label" value="5" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1B3A6B;strokeColor=#1B3A6B;fontColor=#ffffff;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="100" y="570" width="40" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="decision" value="¿Payload válido?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#1B3A6B;fontSize=12;fontStyle=1;fontColor=#1B3A6B;" vertex="1" parent="1">
+      <mxGeometry x="440" y="560" width="180" height="65" as="geometry" />
+    </mxCell>
+    <mxCell id="invalid" value="❌ Log de advertencia&#xa;Payload descartado&#xa;No se escribe en BD" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDECEA;strokeColor=#8B1A1A;fontColor=#8B1A1A;fontSize=10;arcSize=10;" vertex="1" parent="1">
+      <mxGeometry x="760" y="558" width="175" height="65" as="geometry" />
+    </mxCell>
+    <mxCell id="valid_label" value="Sí ✅" style="text;html=1;strokeColor=none;fillColor=none;fontSize=10;fontColor=#1A6B3C;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="460" y="627" width="60" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="invalid_label" value="No ❌" style="text;html=1;strokeColor=none;fillColor=none;fontSize=10;fontColor=#8B1A1A;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="700" y="582" width="55" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_invalid" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#8B1A1A;" edge="1" source="decision" target="invalid" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ── STEP 6: Write to InfluxDB ── -->
+    <mxCell id="step6_label" value="6" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1B3A6B;strokeColor=#1B3A6B;fontColor=#ffffff;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="100" y="672" width="40" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="step6" value="✍️ writer.py construye un InfluxDB Point&#xa;Tags: sensor_id, building, floor, zone, status&#xa;Fields: flow_rate, cumulative_volume, anomaly_flag&#xa;Timestamp: ISO 8601 UTC" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#1B3A6B;fontSize=11;arcSize=5;" vertex="1" parent="1">
+      <mxGeometry x="160" y="665" width="820" height="60" as="geometry" />
+    </mxCell>
+
+    <mxCell id="arr_dec_step6" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1B3A6B;" edge="1" source="decision" target="step6" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ── STEP 7: InfluxDB stored ── -->
+    <mxCell id="step7_label" value="7" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1B3A6B;strokeColor=#1B3A6B;fontColor=#ffffff;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="100" y="755" width="40" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="step7" value="🗄️ Lectura almacenada en InfluxDB — bucket: water_telemetry&#xa;Disponible para consulta Flux en Grafana y en el detector de alertas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#1B3A6B;fontSize=11;arcSize=5;" vertex="1" parent="1">
+      <mxGeometry x="160" y="753" width="820" height="45" as="geometry" />
+    </mxCell>
+
+    <!-- ── STEP 8: Grafana polls ── -->
+    <mxCell id="step8_label" value="8" style="ellipse;whiteSpace=wrap;html=1;fillColor=#5B2D8E;strokeColor=#5B2D8E;fontColor=#ffffff;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="100" y="820" width="40" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="step8" value="📊 Grafana ejecuta queries Flux cada N segundos (auto-refresh)&#xa;Actualiza paneles: Time Series, Stat, Gauge, Heatmap, Bar Chart" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAE0F5;strokeColor=#5B2D8E;fontSize=11;arcSize=5;" vertex="1" parent="1">
+      <mxGeometry x="160" y="818" width="820" height="45" as="geometry" />
+    </mxCell>
+
+    <!-- ── STEP 9: Detector evaluates ── -->
+    <mxCell id="step9_label" value="9" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1A6B3C;strokeColor=#1A6B3C;fontColor=#ffffff;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="100" y="885" width="40" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="step9" value="🔍 detector.py consulta InfluxDB cada 60 segundos&#xa;Evalúa reglas R01–R04 contra los últimos datos almacenados" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D6EDE1;strokeColor=#1A6B3C;fontSize=11;arcSize=5;" vertex="1" parent="1">
+      <mxGeometry x="160" y="883" width="820" height="45" as="geometry" />
+    </mxCell>
+
+    <!-- ── STEP 10: Alert decision ── -->
+    <mxCell id="step10_label" value="10" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1A6B3C;strokeColor=#1A6B3C;fontColor=#ffffff;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="100" y="950" width="40" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="decision2" value="¿Regla activada&#xa;Y fuera de cooldown?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#D6EDE1;strokeColor=#1A6B3C;fontSize=11;fontStyle=1;fontColor=#1A6B3C;" vertex="1" parent="1">
+      <mxGeometry x="410" y="940" width="220" height="65" as="geometry" />
+    </mxCell>
+    <mxCell id="suppressed" value="⏱️ Alerta suprimida&#xa;(en cooldown de 5 min)&#xa;Log: 'Alerta suprimida'" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDF3DC;strokeColor=#7A4F00;fontColor=#7A4F00;fontSize=10;arcSize=10;" vertex="1" parent="1">
+      <mxGeometry x="760" y="940" width="175" height="65" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_sup" value="No ⏱️" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#7A4F00;fontColor=#7A4F00;fontSize=10;" edge="1" source="decision2" target="suppressed" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ── STEP 11: Send Telegram ── -->
+    <mxCell id="step11_label" value="11" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1A6B3C;strokeColor=#1A6B3C;fontColor=#ffffff;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="100" y="1035" width="40" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="step11" value="✅ notifier.py llama a send_telegram()&#xa;Registra el timestamp en debounce._last_alert para iniciar el cooldown" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D6EDE1;strokeColor=#1A6B3C;fontSize=11;arcSize=5;" vertex="1" parent="1">
+      <mxGeometry x="160" y="1033" width="820" height="45" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_dec2_step11" value="Sí ✅" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1A6B3C;fontColor=#1A6B3C;fontSize=10;fontStyle=1;" edge="1" source="decision2" target="step11" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ── STEP 12: Telegram message ── -->
+    <mxCell id="step12_label" value="12" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1A6B3C;strokeColor=#1A6B3C;fontColor=#ffffff;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="100" y="1100" width="40" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="telegram_msg" value="🚨 ALERTA SmartH2O · CRITICAL&#xa;&#xa;📍 Sensor: AARD-A-SAN-P1&#xa;📋 Regla: R01 – Caudal excesivo sostenido&#xa;📊 Valor detectado: 24.3 L/min&#xa;🕐 Hora: 2026-06-05 02:14 UTC" style="text;html=1;strokeColor=#1A6B3C;fillColor=#1E1E2E;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=11;fontColor=#CDD6F4;fontFamily=Courier New;" vertex="1" parent="1">
+      <mxGeometry x="240" y="1095" width="680" height="120" as="geometry" />
+    </mxCell>
+    <mxCell id="telegram_label" value="Mensaje recibido en el chat del equipo — latencia &lt; 1 segundo" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;fontColor=#1A6B3C;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="240" y="1218" width="500" height="20" as="geometry" />
+    </mxCell>
+
+    <!-- ── Vertical flow arrows ── -->
+    <mxCell id="f1" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#0E7C86;strokeWidth=2;" edge="1" source="step1" target="step2" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="f2" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1E56A0;strokeWidth=2;" edge="1" source="step2" target="step3" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="f3" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1E56A0;strokeWidth=2;" edge="1" source="step3" target="step4" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="f4" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1B3A6B;strokeWidth=2;" edge="1" source="step4" target="decision" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="f6" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1B3A6B;strokeWidth=2;" edge="1" source="step6" target="step7" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="f7" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#5B2D8E;strokeWidth=2;" edge="1" source="step7" target="step8" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="f8" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1A6B3C;strokeWidth=2;" edge="1" source="step7" target="step9" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="145" y="778" />
+          <mxPoint x="145" y="906" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="f9" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1A6B3C;strokeWidth=2;" edge="1" source="step9" target="decision2" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="f11" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1A6B3C;strokeWidth=2;" edge="1" source="step11" target="telegram_msg" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+  </root>
+</mxGraphModel>

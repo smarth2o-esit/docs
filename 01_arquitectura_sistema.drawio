@@ -1,0 +1,240 @@
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- TITLE -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <mxCell id="title" value="SmartH2O — Arquitectura del Sistema" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontColor=#1B3A6B;" vertex="1" parent="1">
+      <mxGeometry x="160" y="20" width="1300" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="subtitle" value="Pipeline: Simulador IoT → MQTT → Ingestión → InfluxDB → Grafana → Alertas" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#555555;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="160" y="55" width="1300" height="25" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- LAYER 1 — SENSORES -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <mxCell id="layer1_bg" value="CAPA 1 — SIMULACIÓN DE SENSORES IoT" style="swimlane;startSize=30;fillColor=#D5EEF0;strokeColor=#0E7C86;fontColor=#0E7C86;fontStyle=1;fontSize=11;horizontal=1;swimlaneLine=1;" vertex="1" parent="1">
+      <mxGeometry x="160" y="100" width="1300" height="130" as="geometry" />
+    </mxCell>
+
+    <mxCell id="s1" value="📡 AARD-A-SAN-P1&#xa;Sanitarios Piso 1&#xa;flow_rate | cumulative_volume&#xa;anomaly_flag | status" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0E7C86;fontColor=#1A1A1A;fontSize=9;arcSize=10;" vertex="1" parent="layer1_bg">
+      <mxGeometry x="20" y="45" width="185" height="70" as="geometry" />
+    </mxCell>
+    <mxCell id="s2" value="📡 AARD-B-COC-P1&#xa;Cocina / Comedor&#xa;flow_rate | cumulative_volume&#xa;anomaly_flag | status" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0E7C86;fontColor=#1A1A1A;fontSize=9;arcSize=10;" vertex="1" parent="layer1_bg">
+      <mxGeometry x="225" y="45" width="185" height="70" as="geometry" />
+    </mxCell>
+    <mxCell id="s3" value="📡 AARD-C-JAR-EXT&#xa;Áreas Verdes / Riego&#xa;flow_rate | cumulative_volume&#xa;anomaly_flag | status" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0E7C86;fontColor=#1A1A1A;fontSize=9;arcSize=10;" vertex="1" parent="layer1_bg">
+      <mxGeometry x="430" y="45" width="185" height="70" as="geometry" />
+    </mxCell>
+    <mxCell id="s4" value="📡 AARD-D-MAN-CIS&#xa;Cuarto Mantenimiento&#xa;flow_rate | cumulative_volume&#xa;anomaly_flag | status" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0E7C86;fontColor=#1A1A1A;fontSize=9;arcSize=10;" vertex="1" parent="layer1_bg">
+      <mxGeometry x="635" y="45" width="185" height="70" as="geometry" />
+    </mxCell>
+    <mxCell id="s5" value="📡 AARD-E-SAN-P2&#xa;Sanitarios Piso 2&#xa;flow_rate | cumulative_volume&#xa;anomaly_flag | status" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0E7C86;fontColor=#1A1A1A;fontSize=9;arcSize=10;" vertex="1" parent="layer1_bg">
+      <mxGeometry x="840" y="45" width="185" height="70" as="geometry" />
+    </mxCell>
+    <mxCell id="anomaly" value="⚠️ Modo Anomalía&#xa;ANOMALY_MODE=true&#xa;Inyecta fuga en sensor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDF3DC;strokeColor=#7A4F00;fontColor=#7A4F00;fontSize=9;arcSize=10;fontStyle=1;" vertex="1" parent="layer1_bg">
+      <mxGeometry x="1060" y="45" width="185" height="70" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- ARROW: LAYER 1 → LAYER 2 -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <mxCell id="arr1" value="publish()&#xa;QoS 1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#0E7C86;fontColor=#0E7C86;fontSize=10;fontStyle=1;" edge="1" source="s1" target="mqtt_broker" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0E7C86;" edge="1" source="s2" target="mqtt_broker" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0E7C86;" edge="1" source="s3" target="mqtt_broker" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0E7C86;" edge="1" source="s4" target="mqtt_broker" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0E7C86;" edge="1" source="s5" target="mqtt_broker" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- LAYER 2 — MQTT -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <mxCell id="layer2_bg" value="CAPA 2 — MENSAJERÍA MQTT" style="swimlane;startSize=30;fillColor=#D6E4F0;strokeColor=#1E56A0;fontColor=#1E56A0;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="160" y="270" width="1300" height="110" as="geometry" />
+    </mxCell>
+    <mxCell id="mqtt_broker" value="🔀 Mosquitto Broker 2.x&#xa;Host: localhost:1883&#xa;Topic: smarth2o/sensors/#&#xa;QoS 1 | Persistencia activada" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1E56A0;fontColor=#1A1A1A;fontSize=10;arcSize=10;fontStyle=1;" vertex="1" parent="layer2_bg">
+      <mxGeometry x="420" y="35" width="260" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="mqtt_topic" value="Topic: smarth2o/sensors/{sensor_id}&#xa;Payload JSON: sensor_id, timestamp,&#xa;flow_rate, cumulative_volume, status, anomaly_flag, location{}" style="text;html=1;strokeColor=#1E56A0;fillColor=#EAF2FB;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=9;" vertex="1" parent="layer2_bg">
+      <mxGeometry x="720" y="30" width="380" height="65" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- ARROW: LAYER 2 → LAYER 3 -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <mxCell id="arr6" value="subscribe()&#xa;on_message()" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1E56A0;fontColor=#1E56A0;fontSize=10;fontStyle=1;" edge="1" source="mqtt_broker" target="ingestion" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- LAYER 3 — INGESTIÓN + BD -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <mxCell id="layer3_bg" value="CAPA 3 — INGESTIÓN Y ALMACENAMIENTO" style="swimlane;startSize=30;fillColor=#D6E4F0;strokeColor=#1B3A6B;fontColor=#1B3A6B;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="160" y="420" width="1300" height="160" as="geometry" />
+    </mxCell>
+    <mxCell id="ingestion" value="⚙️ Servicio de Ingestión&#xa;main.py&#xa;smarth2o-esit/ingestion" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1B3A6B;fontColor=#1B3A6B;fontSize=10;arcSize=10;fontStyle=1;" vertex="1" parent="layer3_bg">
+      <mxGeometry x="130" y="45" width="190" height="65" as="geometry" />
+    </mxCell>
+    <mxCell id="validator" value="🔍 validator.py&#xa;Valida campos, tipos,&#xa;status y flow_rate ≥ 0" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#1B3A6B;fontSize=9;arcSize=10;" vertex="1" parent="layer3_bg">
+      <mxGeometry x="355" y="45" width="170" height="65" as="geometry" />
+    </mxCell>
+    <mxCell id="writer" value="✍️ writer.py&#xa;Point(measurement,&#xa;tags, fields, time)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#1B3A6B;fontSize=9;arcSize=10;" vertex="1" parent="layer3_bg">
+      <mxGeometry x="555" y="45" width="170" height="65" as="geometry" />
+    </mxCell>
+    <mxCell id="influxdb" value="🗄️ InfluxDB 2.x Cloud&#xa;Bucket: water_telemetry&#xa;Retención: 30 días raw&#xa;Tags: sensor_id, zone, status&#xa;Fields: flow_rate, cumulative_volume, anomaly_flag" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1B3A6B;fontColor=#1B3A6B;fontSize=9;arcSize=10;fontStyle=1;" vertex="1" parent="layer3_bg">
+      <mxGeometry x="760" y="35" width="220" height="90" as="geometry" />
+    </mxCell>
+    <mxCell id="influxdb_agg" value="🗄️ water_telemetry_agg&#xa;Retención: 365 días&#xa;Flux Task: downsample 1h" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#1B3A6B;fontSize=9;arcSize=10;" vertex="1" parent="layer3_bg">
+      <mxGeometry x="1010" y="45" width="200" height="65" as="geometry" />
+    </mxCell>
+
+    <mxCell id="arr7" value="validate()" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1B3A6B;fontSize=9;" edge="1" source="ingestion" target="validator" parent="layer3_bg">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr8" value="write_reading()" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1B3A6B;fontSize=9;" edge="1" source="validator" target="writer" parent="layer3_bg">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr9" value="write_api.write()" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1B3A6B;fontSize=9;" edge="1" source="writer" target="influxdb" parent="layer3_bg">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr10" value="Flux Task 1h" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1B3A6B;fontSize=9;dashed=1;" edge="1" source="influxdb" target="influxdb_agg" parent="layer3_bg">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- ARROW: LAYER 3 → LAYER 4 -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <mxCell id="arr11" value="Flux query" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#5B2D8E;fontColor=#5B2D8E;fontSize=10;fontStyle=1;" edge="1" source="influxdb" target="grafana" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- LAYER 4 — DASHBOARD -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <mxCell id="layer4_bg" value="CAPA 4 — VISUALIZACIÓN (GRAFANA)" style="swimlane;startSize=30;fillColor=#EAE0F5;strokeColor=#5B2D8E;fontColor=#5B2D8E;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="160" y="630" width="1300" height="140" as="geometry" />
+    </mxCell>
+    <mxCell id="grafana" value="📊 Grafana 10+&#xa;smarth2o-esit/dashboard" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#5B2D8E;fontColor=#5B2D8E;fontSize=10;arcSize=10;fontStyle=1;" vertex="1" parent="layer4_bg">
+      <mxGeometry x="20" y="45" width="160" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="p1" value="📈 Time Series&#xa;Consumo por sensor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAE0F5;strokeColor=#5B2D8E;fontSize=9;arcSize=10;" vertex="1" parent="layer4_bg">
+      <mxGeometry x="205" y="40" width="150" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="p2" value="🔢 Stat&#xa;Consumo acumulado/día" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAE0F5;strokeColor=#5B2D8E;fontSize=9;arcSize=10;" vertex="1" parent="layer4_bg">
+      <mxGeometry x="368" y="40" width="150" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="p3" value="🎯 Gauge&#xa;Caudal promedio 1h" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAE0F5;strokeColor=#5B2D8E;fontSize=9;arcSize=10;" vertex="1" parent="layer4_bg">
+      <mxGeometry x="531" y="40" width="150" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="p4" value="🟥 Heatmap&#xa;Consumo por franja horaria" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAE0F5;strokeColor=#5B2D8E;fontSize=9;arcSize=10;" vertex="1" parent="layer4_bg">
+      <mxGeometry x="694" y="40" width="150" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="p5" value="🚨 Alert List&#xa;Alertas activas / resueltas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAE0F5;strokeColor=#5B2D8E;fontSize=9;arcSize=10;" vertex="1" parent="layer4_bg">
+      <mxGeometry x="857" y="40" width="150" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="p6" value="📊 Bar Chart&#xa;Comparación por zona" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAE0F5;strokeColor=#5B2D8E;fontSize=9;arcSize=10;" vertex="1" parent="layer4_bg">
+      <mxGeometry x="1020" y="40" width="150" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="filters" value="🔽 Variables: $building | $zone | $sensor | $interval" style="text;html=1;strokeColor=#5B2D8E;fillColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=9;" vertex="1" parent="layer4_bg">
+      <mxGeometry x="1185" y="45" width="95" height="55" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- ARROW: LAYER 4 → LAYER 5 -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <mxCell id="arr12" value="Grafana Alerting&#xa;dispatch()" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1A6B3C;fontColor=#1A6B3C;fontSize=10;fontStyle=1;" edge="1" source="p5" target="detector" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- LAYER 5 — ALERTAS -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <mxCell id="layer5_bg" value="CAPA 5 — DETECCIÓN DE ANOMALÍAS Y ALERTAS" style="swimlane;startSize=30;fillColor=#D6EDE1;strokeColor=#1A6B3C;fontColor=#1A6B3C;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="160" y="820" width="1300" height="140" as="geometry" />
+    </mxCell>
+    <mxCell id="detector" value="🔍 detector.py&#xa;Evalúa reglas cada 60s&#xa;smarth2o-esit/alerts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1A6B3C;fontColor=#1A6B3C;fontSize=10;arcSize=10;fontStyle=1;" vertex="1" parent="layer5_bg">
+      <mxGeometry x="20" y="40" width="165" height="65" as="geometry" />
+    </mxCell>
+    <mxCell id="r01" value="R01: Caudal &gt; 20 L/min&#xa;por 10+ min → Critical" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDECEA;strokeColor=#8B1A1A;fontColor=#8B1A1A;fontSize=9;arcSize=10;" vertex="1" parent="layer5_bg">
+      <mxGeometry x="215" y="35" width="175" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="r02" value="R02: Flujo fuera de horario&#xa;(20h–6h) &gt; 2 L/min → Warning" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDF3DC;strokeColor=#7A4F00;fontColor=#7A4F00;fontSize=9;arcSize=10;" vertex="1" parent="layer5_bg">
+      <mxGeometry x="405" y="35" width="185" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="r03" value="R03: anomaly_flag=true&#xa;recibido → Critical" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDECEA;strokeColor=#8B1A1A;fontColor=#8B1A1A;fontSize=9;arcSize=10;" vertex="1" parent="layer5_bg">
+      <mxGeometry x="605" y="35" width="175" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="r04" value="R04: Sin datos &gt; 5 min&#xa;→ Sensor offline → Info" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D6E4F0;strokeColor=#1E56A0;fontColor=#1E56A0;fontSize=9;arcSize=10;" vertex="1" parent="layer5_bg">
+      <mxGeometry x="795" y="35" width="175" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="debounce" value="⏱️ debounce.py&#xa;Cooldown 5 min&#xa;por sensor + regla" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D6EDE1;strokeColor=#1A6B3C;fontSize=9;arcSize=10;" vertex="1" parent="layer5_bg">
+      <mxGeometry x="985" y="35" width="155" height="65" as="geometry" />
+    </mxCell>
+    <mxCell id="telegram" value="✈️ Telegram Bot&#xa;@SmartH2OAlerts&#xa;Latencia &lt; 1 seg" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1A6B3C;fontColor=#1A6B3C;fontSize=9;arcSize=10;fontStyle=1;" vertex="1" parent="layer5_bg">
+      <mxGeometry x="1160" y="35" width="120" height="55" as="geometry" />
+    </mxCell>
+
+    <mxCell id="arr13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1A6B3C;fontSize=9;" edge="1" source="detector" target="r01" parent="layer5_bg">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1A6B3C;fontSize=9;" edge="1" source="detector" target="r02" parent="layer5_bg">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1A6B3C;fontSize=9;" edge="1" source="detector" target="r03" parent="layer5_bg">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1A6B3C;fontSize=9;" edge="1" source="detector" target="r04" parent="layer5_bg">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr17" value="should_alert()" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1A6B3C;fontSize=9;" edge="1" source="r01" target="debounce" parent="layer5_bg">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr18" value="send_telegram()" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1A6B3C;fontSize=9;" edge="1" source="debounce" target="telegram" parent="layer5_bg">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- ALSO: Detector queries InfluxDB -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <mxCell id="arr_det_influx" value="query_api.query()&#xa;Flux" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1A6B3C;fontColor=#1A6B3C;fontSize=9;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" source="detector" target="influxdb" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="100" y="960" />
+          <mxPoint x="100" y="480" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- LEGEND -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <mxCell id="legend_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F6F9;strokeColor=#CCCCCC;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="160" y="1000" width="1300" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="leg1" value="📡 Capa 1: Christian Castro (IoT Jr.)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;fontColor=#0E7C86;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="180" y="1010" width="270" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="leg2" value="🔀 Capa 2-3: Azucena Castillo (Cloud Jr.)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;fontColor=#1B3A6B;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="460" y="1010" width="290" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="leg3" value="📊 Capa 4: Mirna Jimenez (Dashboard Jr.)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;fontColor=#5B2D8E;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="760" y="1010" width="290" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="leg4" value="🔔 Capa 5: Karen Caceres (Integración Jr.)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;fontColor=#1A6B3C;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="1060" y="1010" width="300" height="30" as="geometry" />
+    </mxCell>
+
+  </root>
+</mxGraphModel>
